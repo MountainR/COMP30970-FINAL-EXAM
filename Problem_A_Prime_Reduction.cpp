@@ -6,19 +6,19 @@
 #include <stack>
 using namespace std;
 
-vector<int> PRIMES;
+vector<long long> PRIMES;
 
 // generate all primes
-vector<int> eratosthenes(int n){
+vector<long long> eratosthenes(long long n){
     bool *isMarked = new bool[n+1];
     memset(isMarked, 0, n+1);
-    vector<int> primes;
+    vector<long long> primes;
     
-    int i = 2;
+    long long i = 2;
     for(; i*i <= n; ++i)
         if (!isMarked[i]) {
             primes.push_back(i);
-            for(int j = i; j <= n; j += i)
+            for(long long j = i; j <= n; j += i)
                 isMarked[j] = true;
         }
     for (; i <= n; i++)
@@ -28,10 +28,28 @@ vector<int> eratosthenes(int n){
 }
 
 // check if x is prime
-bool isPrime(int x){
+bool isPrime(long long x){
     return find(PRIMES.begin(), PRIMES.end(), x) != PRIMES.end();
 }
+
 // find x's prime factors
+vector<long long> primeFactors(long long x){
+    // x should be a composite number
+    vector<long long> res;
+    int i = 0, num = x;
+    while(num > 1){
+        if(num % PRIMES[i] == 0){
+            res.push_back(PRIMES[i]);
+            num /= PRIMES[i];
+            i = 0;      // duplicate factors
+        }
+        else {
+            ++i;
+        }
+        
+    }
+    return res;
+}
 // prime reduction
 
 
@@ -40,6 +58,9 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
 
+    // generate primes
+    PRIMES = eratosthenes(100000);
+    
     
 
     return 0;
