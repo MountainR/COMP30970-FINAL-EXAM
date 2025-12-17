@@ -23,17 +23,11 @@ int main() {
 
     while(s1[lhs] == s2[lhs]){
         ++lhs;
-        // cout << lhs << " ";
-
     }
     while(*(s1.end()-rhs) == *(s2.end()-rhs)){
         ++rhs;
-        // cout << rhs << " ";
     }
-
     cout << s2.size() - lhs - rhs + 1;
     
-    
-
     return 0;
 }

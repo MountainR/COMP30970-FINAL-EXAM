@@ -64,7 +64,7 @@ int main() {
             dis = (x_max - x_min + y_max - y_min) * 2;
 
         }
-        cout << dis;
+        cout << dis << "\n";
         
     }
 

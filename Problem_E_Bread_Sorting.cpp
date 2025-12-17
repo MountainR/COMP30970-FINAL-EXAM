@@ -6,6 +6,7 @@
 #include <stack>
 using namespace std;
 
+// It is not easy to construct the graph. Each node is a vector with multiple edges. Besides, circle exists.
 
 bool compare(const vector<int> &breads, const vector<int> &sorted){
     for(int i = 0; i < breads.size(); ++i){
@@ -18,7 +19,7 @@ bool compare(const vector<int> &breads, const vector<int> &sorted){
 bool isPossible(vector<int> &breads, const vector<int> &sorted){
     if(compare(breads, sorted)){return true;}   // base case
     else{
-        
+
     }  
 }
 
