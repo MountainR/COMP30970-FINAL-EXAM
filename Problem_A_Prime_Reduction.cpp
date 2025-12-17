@@ -65,7 +65,7 @@ pair<long long, long long> primeReduction(const long long &x) {
     return res;
 }
 
-
+// main logic
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -87,7 +87,8 @@ int main() {
         }
     }
     for(int i = 0; i < sequence.size(); ++i){
-        cout << sequence[i];
+        pair<long long, long long> res = primeReduction(sequence[i]);
+        cout << res.first << " " << res.second << "\n";
     }
     
     
