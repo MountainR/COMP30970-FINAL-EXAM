@@ -24,7 +24,13 @@ int main() {
             x_cor.push_back(x);
             y_cor.push_back(y);
         }
+        // If only one beeper to be picker
+        if(b_size == 1){
+            cout << 2 * (abs(x_start - x_cor[0]) + abs(y_start - y_cor[0]));
+            exit(0);
+        }
         
+        // find the region of beepers
         sort(x_cor.begin(), x_cor.end());
         sort(y_cor.begin(), y_cor.end());
         // cout << x_cor[b_size-1] << " " << yb[b_size-1];
