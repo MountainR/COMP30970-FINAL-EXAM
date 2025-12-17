@@ -7,7 +7,18 @@
 using namespace std;
 
 int closestSum(const int &query, const vector<int> &numbers){
-    return 0;
+    int minDistance = INT_MAX;
+    int sum;
+    for(int i = 0; i < numbers.size(); ++i){
+        for(int j = i + 1; j < numbers.size(); ++j){
+            if(abs(query - numbers[i] - numbers[j]) < minDistance){
+                minDistance = abs(query - numbers[i] - numbers[j]);
+                sum = numbers[i] + numbers[j];
+            }
+        }
+    }
+
+    return sum;
 }
 
 
@@ -26,6 +37,10 @@ int main() {
         vector<int> queries(m);
         for(int i = 0; i < m; ++i){cin >> queries[i];}
 
+        // sort numbers
+        sort(numbers.begin(), numbers.end());
+
+        // result
         cout << "Case " << counter << ": \n";
         // Closest sum
         for(int i = 0; i < m; ++i){
