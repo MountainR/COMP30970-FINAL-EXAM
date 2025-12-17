@@ -71,21 +71,22 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    // generate primes
-    PRIMES = eratosthenes(100000);
 
     // inputs
     vector<long long> sequence;
-    while(1){
-        long long inputNum;
-        cin >> inputNum;
-        if(inputNum != 4){
-            sequence.push_back(inputNum);
+    long long num, max = 2;
+    while(cin >> num){
+        if(num != 4){
+            sequence.push_back(num);
         }
-        else{
-            break;
+        if(max < num){
+            max = num;
         }
     }
+    // cout << max;
+    // generate primes
+    PRIMES = eratosthenes(max);
+
     for(int i = 0; i < sequence.size(); ++i){
         pair<long long, long long> res = primeReduction(sequence[i]);
         cout << res.first << " " << res.second << "\n";
