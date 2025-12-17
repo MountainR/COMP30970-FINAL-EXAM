@@ -13,6 +13,12 @@ int main() {
 
     string s1, s2;
     cin >> s1 >> s2;
+
+    if(s1 == s2){
+        cout << 0;
+        exit(0);
+    }
+
     int lhs = 0, rhs = 0;
 
     while(s1[lhs] == s2[lhs]){
