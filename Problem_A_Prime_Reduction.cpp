@@ -6,6 +6,8 @@
 #include <stack>
 using namespace std;
 
+vector<int> PRIMES;
+
 // generate all primes
 vector<int> eratosthenes(int n){
     bool *isMarked = new bool[n+1];
@@ -24,7 +26,11 @@ vector<int> eratosthenes(int n){
             primes.push_back(i);
     return primes;
 }
+
 // check if x is prime
+bool isPrime(int x){
+    return find(PRIMES.begin(), PRIMES.end(), x) != PRIMES.end();
+}
 // find x's prime factors
 // prime reduction
 
@@ -33,6 +39,8 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
+
+    
 
     return 0;
 }
