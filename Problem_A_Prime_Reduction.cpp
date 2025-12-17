@@ -36,7 +36,7 @@ bool isPrime(long long x){
 vector<long long> primeFactors(long long x){
     // x should be a composite number
     vector<long long> res;
-    int i = 0, num = x;
+    long long i = 0, num = x;
     while(num > 1){
         if(num % PRIMES[i] == 0){
             res.push_back(PRIMES[i]);
@@ -45,12 +45,25 @@ vector<long long> primeFactors(long long x){
         }
         else {
             ++i;
-        }
-        
+        } 
     }
     return res;
 }
 // prime reduction
+pair<long long, long long> primeReduction(const long long &x) {
+    long long counter = 1, num = x;
+    while(!isPrime(num)){
+        vector<long long> pf = primeFactors(num);
+        int sum = 0;
+        for(int i = 0; i < pf.size(); ++i){
+            sum += pf[i];
+        }
+        num = sum;
+        ++counter;
+    }
+    pair<int, int> res = {num, counter};
+    return res;
+}
 
 
 int main() {
@@ -60,6 +73,22 @@ int main() {
 
     // generate primes
     PRIMES = eratosthenes(100000);
+
+    // inputs
+    vector<long long> sequence;
+    while(1){
+        long long inputNum;
+        cin >> inputNum;
+        if(inputNum != 4){
+            sequence.push_back(inputNum);
+        }
+        else{
+            break;
+        }
+    }
+    for(int i = 0; i < sequence.size(); ++i){
+        cout << sequence[i];
+    }
     
     
 
